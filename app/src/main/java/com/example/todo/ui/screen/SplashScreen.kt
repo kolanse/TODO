@@ -5,6 +5,7 @@ import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateValue
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
@@ -56,7 +57,7 @@ fun SplashScreen(navController: NavHostController) {
         label = "scale"
     ) { it.scale }
     val verticalOffset by transition.animateDp(
-        transitionSpec = { spring(stiffness = Spring.StiffnessLow) },
+        transitionSpec = { spring(stiffness = Spring.StiffnessLow, dampingRatio = Spring.DampingRatioLowBouncy) },
         label = "vOffset",
     ) { it.verticalOffset }
     val horizontalOffset by transition.animateDp(

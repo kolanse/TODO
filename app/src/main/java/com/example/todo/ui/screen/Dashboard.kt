@@ -1,8 +1,10 @@
 package com.example.todo.ui.screen
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.estimateAnimationDurationMillis
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.background
@@ -44,6 +46,7 @@ fun Dashboard() {
     var dPosition by remember{ mutableStateOf(0.dp) }
     val verticalOffset by animateDpAsState(
         targetValue = dPosition,
+        animationSpec = spring(stiffness = Spring.StiffnessLow, dampingRatio = Spring.DampingRatioLowBouncy),
         label = "vertical offset"
     )
     var showLogin by remember { mutableStateOf(false) }
