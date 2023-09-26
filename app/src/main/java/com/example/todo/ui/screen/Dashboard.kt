@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -31,12 +32,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todo.R
+import com.example.todo.ui.components.button.FilledButton
+import com.example.todo.ui.components.text.TitleTextLarge
 import com.example.todo.ui.theme.black
 import com.example.todo.ui.theme.white
 import kotlinx.coroutines.delay
@@ -80,23 +85,32 @@ fun Dashboard() {
                 modifier = Modifier,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = "Let's Get Better\n\nEveryday",
-                    color = black,
+                TitleTextLarge(
+                    text = stringResource(id = R.string.lets_get_better_everyday),
                     textAlign = TextAlign.Center,
-                    fontSize = 40.sp,
-                    fontWeight = FontWeight.Bold,
                 )
                 Spacer(modifier = Modifier.height(42.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    TextButton(onClick = {}, modifier = Modifier.clip(RoundedCornerShape(10.dp)).background(black).width(123.dp)) {
-                        Text(text = "Sign in", color = white)
+                    TextButton(
+                        onClick = {},
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(black)
+                            .width(123.dp)
+                    ) {
+                        Text(text = stringResource(id = R.string.sign_in), color = white)
                     }
-                    TextButton(onClick = {}, modifier = Modifier.clip(RoundedCornerShape(10.dp)).background(black).width(123.dp)) {
-                        Text(text = "Log in", color = white)
+                    TextButton(
+                        onClick = {},
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(black)
+                            .width(123.dp)
+                    ) {
+                        Text(text = stringResource(id = R.string.log_in), color = white)
                     }
                 }
             }
